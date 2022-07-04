@@ -85,10 +85,10 @@ def main(argv):
     wcnt=0
     lcnt=0
     round=1
-    print(f'Round {round} of {s}')
     while round <= s:
-        print(f'Number of prisoners is {str(n)}')
-        print()
+        print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+        print(f'Round {round} of {s}, Number of prisoners is {str(n)}')
+        print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
 
         # let have some boxes matching number of the prisoners
         boxes = random.sample(range(1, n+1), n)
@@ -120,8 +120,9 @@ def main(argv):
         if p:
             printwinloss([d['result'] for d in prisonerwinloss])
 
-        print()
+        print('------------------------------------------------------------')
         print(f'W:{wcnt} L:{lcnt} G:{round} W/L Ratio: {wcnt/round:.0%}/{lcnt/round:.0%}')
+        print('------------------------------------------------------------')
 
         round+=1
 
