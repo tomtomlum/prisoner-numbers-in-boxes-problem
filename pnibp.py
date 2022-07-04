@@ -84,7 +84,9 @@ def main(argv):
 
     wcnt=0
     lcnt=0
+    wcntlenhalf=0
     round=1
+    nhalf=(ceil(n/2) if r else floor(n/2))
     while round <= s:
         print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
         print(f'Round {round} of {s}, Number of prisoners is {str(n)}')
@@ -116,12 +118,15 @@ def main(argv):
         else:
             print(f'Prisoners WON the game!')
             wcnt += 1
+            if max(map(len, loops)) <= nhalf:
+                wcntlenhalf += 1
 
         if p:
             printwinloss([d['result'] for d in prisonerwinloss])
 
         print('------------------------------------------------------------')
         print(f'W:{wcnt} L:{lcnt} G:{round} W/L Ratio: {wcnt/round:.0%}/{lcnt/round:.0%}')
+        print(f'W with max Loop less than {nhalf} boxes: {wcntlenhalf} W Ratio: {wcntlenhalf/round:.0%}')
         print('------------------------------------------------------------')
 
         round+=1
